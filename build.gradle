@@ -28,9 +28,6 @@ testlogger {
   showStandardStreams = true
 }
 
-application {
-  mainClass = 'exercise.App'
-}
 
 jar {
   manifest {
