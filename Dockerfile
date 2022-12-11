@@ -7,3 +7,4 @@ COPY / .
 RUN gradle installDist
 
 CMD ./build/install/intro-to-spring/bin/intro-to-spring
+EXPOSE 8080
