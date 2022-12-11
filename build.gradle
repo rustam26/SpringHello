@@ -1,38 +1,34 @@
 plugins {
-  id 'java'
-  id 'org.springframework.boot' version '2.5.5'
-  id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-  id 'com.adarshr.test-logger' version '3.0.0'
-  id 'application'
+    id 'org.springframework.boot' version '2.5.5'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'com.adarshr.test-logger' version '3.0.0'
+    id 'application'
 }
 
-sourceCompatibility = '17'
 repositories {
-  mavenCentral()
+    mavenCentral()
 }
 
 compileJava {
-  options.release = 17
+    options.release = 17
 }
 
 dependencies {
-  implementation 'org.springframework.boot:spring-boot-starter-web'
-  testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 test {
-  useJUnitPlatform()
+    useJUnitPlatform()
 }
 
 testlogger {
-  showStandardStreams = true
+    showStandardStreams = true
 }
 
-
-jar {
-  manifest {
-    attributes (
-            'Main-Class': 'exercise.App'
-    )
-  }
+application {
+    mainClass = 'exercise.App'
 }
+
+task stage(dependsOn: ['clean', 'installDist'])
+installDist.mustRunAfter clean

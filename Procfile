@@ -1,0 +1,1 @@
+web: sh build/install/intro-to-spring-boot/bin/intro-to-spring
